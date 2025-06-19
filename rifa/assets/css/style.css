@@ -1,0 +1,233 @@
+/* Estilo geral */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Estilo para os cards de mesa (do atendente) */
+.mesa-card {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mesa-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mesa-card .card-body {
+    padding: 1rem;
+}
+
+.mesa-numero {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Cores de status da mesa (do atendente) */
+.status-livre {
+    background-color: #d1e7dd; /* Verde claro */
+    border-left: 5px solid #0f5132;
+}
+.status-ocupada {
+    background-color: #fff3cd; /* Amarelo claro */
+    border-left: 5px solid #664d03;
+}
+.status-pronto { /* Status extra para notificação */
+    background-color: #cff4fc; /* Azul claro */
+    border-left: 5px solid #087990;
+    animation: pulse 1.5s infinite;
+}
+
+/* Animação para pedidos prontos (do atendente, se aplicável) */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(8, 121, 144, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(8, 121, 144, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(8, 121, 144, 0);
+    }
+}
+
+
+/* --- NOVOS ESTILOS PARA A TELA DA COZINHA (RESPONSIVIDADE E ANIMAÇÕES) --- */
+
+/* Estilos Gerais para o Painel da Cozinha */
+body {
+    background-color: #343a40; /* Um fundo escuro para a cozinha */
+    color: #f8f9fa; /* Cor de texto claro */
+}
+
+/* Centraliza os títulos das colunas na cozinha */
+.container-fluid h4.text-center {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    /* Alterada a cor do texto para um cinza mais visível em fundos escuros */
+    color: #adb5bd !important; /* Um cinza claro para melhor contraste */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Mantém a sombra para mais destaque */
+}
+
+/* Ajustes para os badges de contagem */
+.container-fluid h4.text-center .badge {
+    vertical-align: middle; /* Alinha o badge com o texto do título */
+    font-size: 0.9rem;
+    padding: 0.4em 0.6em;
+}
+
+/* Remove o estilo inline dos containers e permite que o grid Bootstrap os gerencie */
+#novosPedidos,
+#emPreparo {
+    min-height: 250px; /* Garante uma altura mínima para as colunas */
+    background-color: #495057; /* Fundo ligeiramente mais claro para as colunas */
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3); /* Sombra interna sutil */
+    display: flex; /* Mantém o flex para centralizar o spinner/mensagem */
+    flex-wrap: wrap; /* Permite que os cards se quebrem para a próxima linha */
+    align-items: flex-start; /* Alinha os itens no topo */
+    justify-content: flex-start; /* Alinha os itens ao início */
+    align-content: flex-start; /* Alinha linhas de conteúdo no topo */
+}
+
+/* Estilo para quando a coluna está vazia (spinner/mensagem centralizados) */
+#novosPedidos > .text-center,
+#emPreparo > .text-center {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px; /* Garante que o spinner fique centralizado verticalmente */
+}
+
+/* Estilo Base dos Cards de Pedido (na cozinha) */
+.pedido-card {
+    width: 100%; /* Ocupa a largura total da coluna do grid */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra para destaque */
+    transition: transform 0.3s ease-in-out; /* Suaviza a transição de estado/animação */
+    overflow: hidden; /* Garante que nada saia do card */
+}
+
+.pedido-card:hover {
+    transform: translateY(-3px); /* Leve elevação no hover */
+}
+
+.pedido-card .card-body {
+    padding: 15px;
+}
+
+.pedido-card .card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.pedido-card .card-subtitle {
+    font-size: 0.9rem;
+    color: #adb5bd !important; /* Cor mais clara para o cliente */
+    margin-bottom: 10px;
+}
+
+.pedido-card ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+    list-style-type: disc;
+    color: #e9ecef; /* Cor para os itens da lista */
+}
+
+.pedido-card ul li {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.pedido-card ul li em {
+    font-style: normal;
+    color: #ffc107; /* Cor para observações */
+}
+
+/* Botões dentro do card */
+.pedido-card .btn-atualizar-status {
+    font-weight: bold;
+    font-size: 1.05rem;
+    padding: 10px 0;
+}
+
+/* --- Animações de Pulso --- */
+@keyframes pulse-red {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+        transform: scale(1);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 0, 0, 0);
+        transform: scale(1.03); /* Pulsa um pouco mais para fora */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse-orange {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7);
+        transform: scale(1);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 165, 0, 0);
+        transform: scale(1.03);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 165, 0, 0);
+        transform: scale(1);
+    }
+}
+
+/* --- Classes de Status com Animações e Cores (na cozinha) --- */
+.pedido-novo {
+    background-color: #dc3545; /* Vermelho */
+    color: #fff; /* Texto branco */
+    animation: pulse-red 2s infinite; /* Aplica a animação */
+}
+
+.pedido-novo .card-subtitle,
+.pedido-novo ul li {
+    color: #f8d7da !important; /* Cor mais clara para texto dentro do card vermelho */
+}
+
+.pedido-novo ul li em {
+    color: #ffcc00; /* Observação em amarelo forte no card vermelho */
+}
+
+.pedido-preparando {
+    background-color: #ffc107; /* Laranja */
+    color: #343a40; /* Texto escuro */
+    animation: pulse-orange 2s infinite; /* Aplica a animação */
+}
+
+.pedido-preparando .card-subtitle,
+.pedido-preparando ul li {
+    color: #6c757d !important; /* Cor mais escura para texto dentro do card laranja */
+}
+
+.pedido-preparando ul li em {
+    color: #007bff; /* Observação em azul forte no card laranja */
+}
+
+.pedido-pronto-kitch {
+    background-color: #28a745; /* Verde */
+    color: #fff; /* Texto branco */
+    /* Não tem animação de pulso */
+}
+
+.pedido-pronto-kitch .card-subtitle,
+.pedido-pronto-kitch ul li {
+    color: #d4edda !important; /* Cor mais clara para texto dentro do card verde */
+}
+
+.pedido-pronto-kitch ul li em {
+    color: #6a008a; /* Observação em roxo forte no card verde */
+}
