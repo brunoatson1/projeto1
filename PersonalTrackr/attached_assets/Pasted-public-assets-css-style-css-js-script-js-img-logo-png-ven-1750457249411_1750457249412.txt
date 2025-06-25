@@ -1,0 +1,95 @@
+public/
+├── assets/
+│   ├── css/style.css
+│   ├── js/script.js
+│   ├── img/logo.png
+│   └── vendor/
+│       ├── bootstrap/
+│       └── jquery/
+├── .htaccess
+└── index.php
+
+app/
+├── config/config.php
+├── controllers/
+│   ├── AdminController.php
+│   ├── AtendenteController.php
+│   ├── CozinhaController.php
+│   ├── AuthController.php
+│   └── Router.php
+├── models/
+│   ├── DB.php
+│   ├── BaseModel.php
+│   ├── User.php
+│   ├── Mesa.php
+│   ├── Produto.php
+│   ├── Pedido.php
+│   ├── ItemPedido.php
+│   └── FormaPagamento.php
+├── views/
+│   ├── auth/login.php
+│   ├── layouts/
+│   │   ├── main.php
+│   │   ├── admin_layout.php
+│   │   ├── atendente_layout.php
+│   │   └── cozinha_layout.php
+│   ├── admin/
+│   │   ├── dashboard.php
+│   │   ├── users.php
+│   │   ├── products.php
+│   │   ├── payment_methods.php
+│   │   └── reports.php
+│   ├── atendente/
+│   │   ├── dashboard.php
+│   │   ├── pedido.php
+│   │   └── fechar_pedido.php
+│   ├── cozinha/dashboard.php
+│   ├── partials/
+│   │   ├── header.php
+│   │   └── footer.php
+│   └── 404.php
+└── helpers/
+    ├── session_helper.php
+    ├── url_helper.php
+    └── validation_helper.php
+
+storage/
+├── uploads/products/
+└── logs/app.log
+
+.htaccess
+README.md
+Funcionalidades:
+Login com 3 níveis: atendente, admin geral, e cozinha
+
+Tela de mesas disponíveis para o atendente (verde = livre, vermelho = ocupada, laranja = prato pronto)
+
+Atendente anota pedidos, escolhe produtos, adiciona observações e envia à cozinha
+
+Cozinha vê pedidos recebidos e altera o status:
+
+Piscando vermelho: novo recebido
+
+Vermelho fixo: em preparo
+
+Verde: pronto
+
+Atendente fecha pedido com forma de pagamento e observações
+
+Dashboard administrativo com:
+
+Cadastro de usuários, produtos (pratos e bebidas), formas de pagamento
+
+Relatórios do dia
+
+Layout moderno, responsivo, bonito e temático de restaurante
+
+Use Bootstrap e jQuery para interações visuais
+
+URLs amigáveis com .htaccess e roteamento simples
+
+Banco de dados simulado com estrutura CRUD
+
+Utilize AJAX quando necessário para atualização de status em tempo real
+
+Crie os arquivos com conteúdo correspondente a cada parte. O sistema deve rodar com php -S 0.0.0.0:3000 -t public no Replit.
